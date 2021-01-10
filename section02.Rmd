@@ -1,0 +1,107 @@
+---
+title: "Time characteristics"
+output: 
+  html_document: 
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(openair)
+```
+
+## Basic information of various pollutants
+
+From the figure below, you can see the time series, frequency distribution and statistical analysis of the six pollutants (average value, median /95% quantile value, minimum /maximum value, missing value data amount / proportion).
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+summaryPlot(data[,-1])
+```
+
+## Daily characteristics
+
+### AQI
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data, 
+             pollutant = "AQI",
+             breaks=c(-1,0,50,100,200,300,1000),
+             labels=c("excellent",
+                      "good",
+                      "Mild pollution",
+                      "moderate pollution",
+                      "heavy pollution",
+                      "serious pollution"))
+```
+
+
+### PM2.5
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data,pollutant = "PM25")
+```
+
+### PM10
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data,pollutant = "PM10")
+```
+
+### SO2
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data,pollutant = "SO2")
+```
+
+### CO
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data,pollutant = "CO")
+```
+
+### NO2
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data,pollutant = "NO2")
+```
+
+### O3
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+calendarPlot(data,pollutant = "O3")
+```
+
+## Monthly characteristics
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+timePlot<-timeVariation(data,pollutant = c("AQI","PM25","PM10","SO2","CO","NO2","O3"),statistic = "mean",xlab = c("month", "weekday"))
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+plot(timePlot,subset = "month")
+```
+
+## Weekly characteristics
+
+### AQI
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+plot(timeVariation(data,pollutant = c("AQI"),statistic = "mean"),subset="day",xlab = c("month", "weekday"))
+
+```
+
+### Other's 
+
+***Just look at the big pictures***
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+plot(timeVariation(data,pollutant = c("PM25"),statistic = "mean"),subset="day")
+plot(timeVariation(data,pollutant = c("PM10"),statistic = "mean"),subset="day")
+plot(timeVariation(data,pollutant = c("SO2"),statistic = "mean"),subset="day")
+plot(timeVariation(data,pollutant = c("CO"),statistic = "mean"),subset="day")
+plot(timeVariation(data,pollutant = c("NO2"),statistic = "mean"),subset="day")
+plot(timeVariation(data,pollutant = c("O3"),statistic = "mean"),subset="day")
+```
