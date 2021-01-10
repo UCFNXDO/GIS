@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Spatial characteristics</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Coursework</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Section 1</a>
+</li>
+<li>
+  <a href="section02.html">Section 2</a>
+</li>
+<li>
+  <a href="section03.html">Section 3</a>
+</li>
+<li>
+  <a href="section04.html">Section 4</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Spatial characteristics</h1>
+
+</div>
+
+
+<div id="clustering-characteristics-of-air-quality-in-all-cities-in-china-analyzed-by-kmeans" class="section level2">
+<h2>Clustering characteristics of air quality in all cities in China analyzed by Kmeans</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># standarized</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>city_cluster<span class="ot">&lt;-</span><span class="fu">apply</span>(year_data[,<span class="dv">4</span><span class="sc">:</span><span class="dv">10</span>],<span class="dv">2</span>,scale)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tot_withinss<span class="ot">&lt;-</span><span class="fu">vector</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>betweenss<span class="ot">&lt;-</span><span class="fu">vector</span>()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>kk<span class="ot">&lt;-</span><span class="dv">30</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(ii <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>kk){</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  k1 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(city_cluster,ii,<span class="at">iter.max =</span> <span class="dv">100</span>,<span class="at">algorithm =</span> <span class="st">&quot;MacQueen&quot;</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  tot_withinss[ii] <span class="ot">&lt;-</span> k1<span class="sc">$</span>tot.withinss</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  betweenss[ii] <span class="ot">&lt;-</span> k1<span class="sc">$</span>betweenss</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>kmeanvalue <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">kk =</span> <span class="dv">1</span><span class="sc">:</span>kk,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tot_withinss =</span> tot_withinss,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                         <span class="at">betweenss =</span> betweenss)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(kmeanvalue,<span class="fu">aes</span>(<span class="at">x =</span> kk,<span class="at">y =</span> tot_withinss))<span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;STKaiti&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;the number of clusters for kmean&quot;</span>,<span class="at">y =</span> <span class="st">&quot;value&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;squared sum within groups&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(kmeanvalue,<span class="fu">aes</span>(<span class="at">x =</span> kk,<span class="at">y =</span> betweenss))<span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;STKaiti&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;the number of clusters for kmean&quot;</span>,<span class="at">y =</span> <span class="st">&quot;value&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;squared sum between groups&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1,p2,<span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="section04_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>As can be seen from the above figure, by trying a series of Kmeans cluster, the cluster data is defined as 13 categories (in fact, more than 13 categories are acceptable). Because the changes in these two indicators are quite drastic before 13, it is classified as 13 categories.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">&lt;-</span><span class="dv">13</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kcluster<span class="ot">&lt;-</span><span class="fu">kmeans</span>(city_cluster,k,<span class="at">iter.max =</span> <span class="dv">100</span>,<span class="at">algorithm =</span> <span class="st">&quot;MacQueen&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>kcluster</span></code></pre></div>
+<pre><code>## K-means clustering with 13 clusters of sizes 3, 32, 33, 24, 37, 29, 40, 44, 24, 24, 45, 8, 14
+## 
+## Cluster means:
+##           mAQI       mPM25       mPM10        mSO2        mCO        mNO2
+## 1   4.65836553  4.13152673  6.74654630 -0.10872253  1.0264166  0.29954231
+## 2   0.27128149  0.06055947 -0.01931202 -0.17057063  0.5098851  0.59526255
+## 3  -0.56269797 -0.97605308 -0.62373294 -0.08759007 -0.9785352 -0.97382175
+## 4   0.69122290  0.59264289  0.77617050 -0.26172580 -0.6615409 -0.12062020
+## 5  -1.29832072 -1.22470236 -1.03372034 -0.47604447 -1.0158131 -1.47612017
+## 6  -0.85335850 -0.55563356 -0.50973654  0.40347741  0.3659175 -0.74441335
+## 7  -0.86131640 -0.62995972 -0.58701874 -0.70994495 -0.5011215 -0.60296132
+## 8   1.43109254  1.48337303  1.10389350  0.12583716  0.6488546  0.95298110
+## 9  -0.08462650  0.31421205 -0.14777051 -0.46152981  0.1482409  0.09664654
+## 10  0.31329933  0.37860135  0.31682222  1.38450423  0.9444571  0.56262696
+## 11 -0.05466204 -0.22492331 -0.26791918 -0.62450603 -0.4722971  0.67959584
+## 12  0.40806702  0.23418669  0.62448336  3.69887718  1.2731436  0.60996387
+## 13  1.23575240  1.18797920  0.94829599  1.43503218  2.2918052  1.58511458
+##            mO3
+## 1   0.06929935
+## 2   0.85268547
+## 3   0.41015290
+## 4   0.57003371
+## 5  -1.18412984
+## 6  -0.98325382
+## 7  -1.14091985
+## 8   1.00101780
+## 9  -0.68748496
+## 10  0.03709417
+## 11  0.39091273
+## 12  0.29894463
+## 13  1.05973120
+## 
+## Clustering vector:
+##   [1]  1  3  5  3  7 11 13  5 13  5  6  6 12  4  8  4  5 13 10  7  5 11 10  5 13
+##  [26]  4  4  8  9  9  8  9  2 13  2 10  3  2 11  6  6  9  9  7  5  2 11  5  6  7
+##  [51] 12  5  9  6 11  8  3  5 11  8  2  7  2  7 11 10 10  4  7  7  3  6  5  7  7
+##  [76] 11  7  6  7  3 11 10  3  2  5  2  3  3  4  8 11 10  8  7 11  5  5  8  9  1
+## [101]  7  8  7  5  4  8  6  4  2  3  3 10 10  3 12  5 11  7  3 11  2 11 11  8 11
+## [126]  4  6 10  2  8  3 13  6  4  9 11  8  2 10 12 11  4  7  2  8  1  7  4  4  7
+## [151]  2  6  4  2  8 13  3  3  2  8 10 10  5  7  7 13  2  8  7  2  5  6  2  3  5
+## [176]  9  8  8  9 10  2  5 11  7 11  7 11  9  2  7  5 11  8  5  9 11  7  6 10 12
+## [201]  8  4 11 10  5  3  8  6  5  5 11  3 11 10  6  6  9  3  6 11 11  3  2  8  7
+## [226]  5  3 11  3  8  6  3  3  6 11  6 10  7  8  8  9 12 10  5 12  9  7  9  7  2
+## [251] 11  5  8 11 13 11 11 13  8 11  4  2  6  3 10  7  8  8  3  8  3  5 11 12  2
+## [276] 11  2  8  3  8  4  2  4  6  8  9  7  8  6  8  2  5  5 13 10  8  4 10 10  7
+## [301]  4  4 11  8  8  7 11  5 11  5 13 11 11  9  9  6  6 13 10  2  3 11  2  9  7
+## [326]  9  9  2  6  8  6  5  6  8  2  7  3  8  4  3  5  7  5  8 11  7  4  8  3  7
+## [351]  7  4  9 13  9 11  5
+## 
+## Within cluster sum of squares by cluster:
+##  [1] 27.66647 41.10232 65.27906 45.95891 52.21678 39.41466 43.60073 74.91572
+##  [9] 30.99460 53.55179 50.01372 19.85005 37.53159
+##  (between_SS / total_SS =  76.6 %)
+## 
+## Available components:
+## 
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
+## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
+<p>Check the number of each category</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(kcluster<span class="sc">$</span>cluster)</span></code></pre></div>
+<pre><code>## 
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 
+##  3 32 33 24 37 29 40 44 24 24 45  8 14</code></pre>
+<p>Visualization of clustering results</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clusplot</span>(city_cluster,kcluster<span class="sc">$</span>cluster,<span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;kmean cluster number=&quot;</span>,k,<span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<p><img src="section04_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Clustering effect (contour coefficient) &gt;The contour coefficient is the evaluation index of the most commonly used clustering algorithm. It is defined for each sample, and it can simultaneously measure the similarity between the sample and other samples in its own cluster, as well as between the sample and samples in the other clusters. The value range of contour coefficient is (-1,1). The closer to 1 means the better the cluster effect is, and the negative number means the cluster effect is very poor.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>si1 <span class="ot">&lt;-</span> <span class="fu">silhouette</span>(kcluster<span class="sc">$</span>cluster,<span class="fu">dist</span>(city_cluster,<span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">0.9</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(si1,<span class="at">main =</span> <span class="st">&quot;kmean silhouette&quot;</span>,<span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="section04_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>From the contour information diagram of the above cluster, we can find that the cluster effect is good.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>city_clu<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">city=</span>year_data<span class="sc">$</span>cn_en,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lon=</span>year_data<span class="sc">$</span>lon,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lat=</span>year_data<span class="sc">$</span>lat,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">cluster=</span>kcluster<span class="sc">$</span>cluster)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>clucolor<span class="ot">&lt;-</span><span class="fu">colorFactor</span>(<span class="st">&quot;Paired&quot;</span>,city_clu<span class="sc">$</span>cluster)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>cl<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>){</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  cl[[i]]<span class="ot">&lt;-</span><span class="fu">filter</span>(city_clu,cluster<span class="sc">==</span>i)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span>city_clu<span class="sc">%&gt;%</span><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;OpenTopoMap&quot;</span>,<span class="at">group=</span><span class="st">&quot;TopoMap&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">&quot;OpenStreetMap&quot;</span>,<span class="at">group=</span><span class="st">&quot;StreetMap&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">data=</span>border,<span class="at">fill =</span> <span class="cn">FALSE</span>, <span class="at">weight =</span><span class="fl">1.5</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">1</span>]],</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">1</span>],</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 1&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">2</span>]],</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">2</span>],</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 2&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">3</span>]],</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">3</span>],</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 3&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">4</span>]],</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">4</span>],</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 4&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">5</span>]],</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">5</span>],</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 5&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">6</span>]],</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">6</span>],</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 6&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">7</span>]],</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">7</span>],</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 7&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">8</span>]],</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">8</span>],</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 8&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">9</span>]],</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">9</span>],</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 9&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">10</span>]],</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">10</span>],</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 10&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">11</span>]],</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">11</span>],</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 11&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">12</span>]],</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">12</span>],</span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 12&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">data=</span>cl[[<span class="dv">13</span>]],</span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lng=</span><span class="sc">~</span>lon,</span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>                   <span class="at">lat=</span><span class="sc">~</span>lat,</span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>                   <span class="at">radius=</span><span class="dv">8</span>,</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="sc">~</span><span class="fu">clucolor</span>(city_clu<span class="sc">$</span>cluster)[<span class="dv">13</span>],</span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fillOpacity=</span><span class="dv">1</span>,</span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>                   <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(city_clu<span class="sc">$</span>city,city_clu<span class="sc">$</span>cluster,<span class="at">sep =</span> <span class="st">&quot;:Cluster &quot;</span>),</span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span><span class="st">&quot;Cluster 13&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="fu">addLayersControl</span>(<span class="at">baseGroups=</span><span class="fu">c</span>(<span class="st">&quot;StreetMap&quot;</span>,<span class="st">&quot;TopoMap&quot;</span>),</span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>                 <span class="at">overlayGroups =</span> <span class="fu">c</span>(<span class="st">&quot;Cluster 1&quot;</span>,<span class="st">&quot;Cluster 2&quot;</span>,<span class="st">&quot;Cluster 3&quot;</span>,<span class="st">&quot;Cluster 4&quot;</span>,<span class="st">&quot;Cluster 5&quot;</span>,</span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Cluster 6&quot;</span>,<span class="st">&quot;Cluster 7&quot;</span>,<span class="st">&quot;Cluster 8&quot;</span>,<span class="st">&quot;Cluster 9&quot;</span>,<span class="st">&quot;Cluster 10&quot;</span>,</span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Cluster 11&quot;</span>,<span class="st">&quot;Cluster 12&quot;</span>,<span class="st">&quot;Cluster 13&quot;</span>),</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>                 <span class="at">options=</span><span class="fu">layersControlOptions</span>(<span class="at">collapsed =</span> <span class="cn">FALSE</span>))    </span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a><span class="co">#p</span></span></code></pre></div>
+<p><img src="images/st3.PNG" /></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
