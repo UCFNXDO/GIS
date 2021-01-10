@@ -1,0 +1,25 @@
+000000 WARNING: NcDataset initMe - NJ IOException acquiring dataset: java.io.IOException: java.io.EOFException: Reading /G:/CRUTEM5 Data (20201229)/CRUTEM.5.0.0.0.summary_series.global.annual.nc at 0 file length = 0
+java.io.IOException: java.io.EOFException: Reading /G:/CRUTEM5 Data (20201229)/CRUTEM.5.0.0.0.summary_series.global.annual.nc at 0 file length = 0
+	at ucar.nc2.NetcdfFile.open(NetcdfFile.java:431)
+	at ucar.nc2.dataset.NetcdfDataset.openOrAcquireFile(NetcdfDataset.java:748)
+	at ucar.nc2.dataset.NetcdfDataset.openDataset(NetcdfDataset.java:427)
+	at ucar.nc2.dataset.NetcdfDataset.acquireDataset(NetcdfDataset.java:528)
+	at ucar.nc2.dataset.NetcdfDataset.acquireDataset(NetcdfDataset.java:505)
+	at gov.nasa.giss.data.nc.NcDataset.initMe(NcDataset.java:105)
+	at gov.nasa.giss.data.nc.NcDataset.<init>(NcDataset.java:83)
+	at gov.nasa.giss.panoply.action.PanOpenDatasetTask.openDataset(PanOpenDatasetTask.java:145)
+	at gov.nasa.giss.panoply.action.PanOpenDatasetTask.beginTask(PanOpenDatasetTask.java:83)
+	at gov.nasa.giss.util.task.Task.doInBackground(Task.java:77)
+	at javax.swing.SwingWorker$1.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at javax.swing.SwingWorker.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.EOFException: Reading /G:/CRUTEM5 Data (20201229)/CRUTEM.5.0.0.0.summary_series.global.annual.nc at 0 file length = 0
+	at ucar.unidata.io.RandomAccessFile.readFully(RandomAccessFile.java:850)
+	at ucar.unidata.io.RandomAccessFile.readFully(RandomAccessFile.java:829)
+	at ucar.nc2.iosp.netcdf3.N3header.isValidFile(N3header.java:63)
+	at ucar.nc2.NetcdfFile.open(NetcdfFile.java:774)
+	at ucar.nc2.NetcdfFile.open(NetcdfFile.java:428)
+	... 15 more
